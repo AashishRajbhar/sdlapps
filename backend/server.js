@@ -24,16 +24,16 @@ console.log("✅ Auth routes loaded:", app._router.stack.map(r => r.route?.path)
 
 const port = process.env.PORT || 5001;
 app.listen(port, '0.0.0.0', () => {
-  console.log(`🚀 Server running on http://localhost:${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
 
 
 app.get('/test', (req, res) => {
-  res.send('✅ Test route working');
+  res.send('Testing route is working');
 });
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch(err => console.log('❌ MongoDB connection failed:', err.message));
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(' MongoDB connection failed:', err.message));
 
   
 module.exports = app
