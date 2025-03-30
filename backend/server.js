@@ -1,26 +1,39 @@
 
 const express = require('express');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const invoiceRoutes = require('./routes/invoiceRoutes');
+const authRoutes = require('./routes/authRoutes');
 const cors = require('cors');
-const connectDB = require('./config/db');
 
-dotenv.config();
+
+dotenv.config({ path: __dirname + '/.env' });
+
 
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/api/auth', require('./routes/authRoutes'));
-//app.use('/api/tasks', require('./routes/taskRoutes'));
-
-// Export the app object for testing
-if (require.main === module) {
-    connectDB();
-    // If the file is run directly, start the server
-    const PORT = process.env.PORT || 5001;
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  }
+app.use('/api/users', authRoutes);
+app.use('/api/invoices', invoiceRoutes);
 
 
+console.log("✅ Auth routes loaded:", app._router.stack.map(r => r.route?.path).filter(Boolean));
+// console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
+
+const port = process.env.PORT || 5001;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
+
+
+app.get('/test', (req, res) => {
+  res.send('Testing route is working');
+});
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(' MongoDB connection failed:', err.message));
+
+  
 module.exports = app
