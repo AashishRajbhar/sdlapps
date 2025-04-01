@@ -19,7 +19,7 @@ app.use('/api/users', authRoutes);
 app.use('/api/invoices', invoiceRoutes);
 
 
-console.log("✅ Auth routes loaded:", app._router.stack.map(r => r.route?.path).filter(Boolean));
+console.log("Auth routes loaded:", app._router.stack.map(r => r.route?.path).filter(Boolean));
 // console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
 
 const port = process.env.PORT || 5001;
