@@ -1,68 +1,39 @@
-# **Assignment: Full-Stack CRUD Application Development with DevOps Practices**
+# Billing and Invoice System (BAI)
 
-## **Objective**
+This is a MERN stack-based billing and invoice management system developed for IFN636 assignment.
 
-You have been provided with a starter project that includes user authentication using  **Node.js, React.js, and MongoDB**. Your task is to extend this application by implementing **CRUD (Create, Read, Update, Delete) operations** for a real-world application of your choice, while following industry best practices such as:
+## 🌐 Used Technologies
+- React.js (frontend)
+- Node.js + Express.js (backend)
+- MongoDB + Mongoose (database)
+- JWT Authentication
+- GitHub Actions (CI/CD)
+- Jira (Agile board & project planning)
 
-* **Project Management with JIRA**
-* **Requirement Diagram using SysML**
-* **Version Control using GitHub**
-* **CI/CD Integration for Automated Deployment**
+# How to run this project
+### backend
+cd backend
+npm install
+npm start
 
-## **Requirements**
+### frontend
+cd frontend
+npm install
+npm start
 
-### **1. Choose a Real-World Application**
+## API Endpoints Tested using
+POST /api/users/register
+POST /api/users/login
+GET  /api/users/profile
+PUT  /api/users/profile
+CRUD /api/invoices
 
-Select a meaningful use case for your CRUD operations. We will provide the list, you have to select it.
+## CI/CD
+- GitHub Actions: `.github/workflows/main.yml`
+- Sample test using Mocha + chai
 
-### **2. Project Management with JIRA and SysML**
 
-* Create a **JIRA project** and define:
-  * **Epic**
-  * **User Stories** (features required in your app)
-  * **Child issues & Subtasks** (breaking down development work)
-  * **Sprint Planning** (organizing work into milestones)
-* Document your JIRA **board URL** in the project README.
-* Draw a requirements diagram
+## project managed using 
+- Jira: https://connect-team-sdfi6emj.atlassian.net/issues/?jql=created%20%3E%3D%20-30d%20order%20by%20created%20DESC
+- Epics, User stories, tasks and sprints completed
 
-### **3. Backend Development (Node.js + Express + MongoDB)**
-
-* Create a user-friendly interface to interact with your API (Some portion developed, follow task manager app)).
-* Implement **forms** for adding and updating records.
-* Display data using  **tables, cards, or lists (Follow how we showed data in task manager app)**
-
-### **4. Frontend Development (React.js)**
-
-* Create a user-friendly interface to interact with your API (**Some portion developed, follow task manager app)**.
-* Implement **forms** for adding, showing, deleting and updating records (CRUD).
-* Display data using  **tables, cards, or lists (Follow how we showed data in task manager app)**
-
-### **5. Authentication & Authorization**
-
-* Ensure **only authenticated users** can access and perform CRUD operations. (Already developed in your project)
-* Use **JWT (JSON Web Tokens)** for user authentication (Use the task manager one from .env file).
-
-### **6. GitHub Version Control & Branching Strategy**
-
-* Use **GitHub for version control** and maintain:
-  * `main` branch (stable production-ready code)
-  * Feature branches (`feature/xyz`) for each new functionality
-* Follow proper **commit messages** and  **pull request (PR) reviews** .
-
-### **7. CI/CD Pipeline Setup**
-
-* Implement a **CI/CD pipeline using GitHub Actions** to:
-  * Automatically **run tests** on every commit/pull request (Optional).
-  * Deploy the **backend** to **AWS** .
-  * Deploy the **frontend** to **AWS**.
-* Document your  **CI/CD workflow in the README** .
-
-## **Submission Requirements**
-
-* **JIRA Project Board URL** (user stories ).
-* **Requirment diagram** (Using project features)
-* **GitHub Repository** (`backend/` and `frontend/`).
-* **README.md** with:
-
-  * Project setup instructions.
-  * CI/CD pipeline details.
